@@ -1,1 +1,2 @@
-console.log('heeleleel js');
+const data = Date.now();
+console.log(data);

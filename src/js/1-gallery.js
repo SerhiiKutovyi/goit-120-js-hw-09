@@ -64,21 +64,24 @@ const images = [
   },
 ];
 
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const galleryRef = document.querySelector('.gallery');
 
 const galleryImages = images => {
   return images
     .map(
       ({ original, preview, description }) => `
-  <li class="gallery-item">
-	<a class="gallery-link" href="${original}">
-	  <img 
-		class="gallery-image" 
-		src="${preview}" 
-		alt="${description}" 
-	  />
+<li class="gallery-item">
+	<a class="gallery-link"  href="${original}">
+		<img 
+		  class="gallery-image" 
+		  src="${preview}" 
+		  alt="${description}" 
+		/>
 	</a>
-  </li>`
+</li>`
     )
     .join('');
 };
@@ -87,29 +90,8 @@ galleryRef.insertAdjacentHTML('beforeend', galleryImages(images));
 
 galleryImages(images);
 
-// galleryRef.addEventListener('click', e => {
-//   e.preventDefault();
-
-//   if (e.target.nodeName !== 'IMG') {
-//     return;
-//   }
-
-//   const instance = basicLightbox.create(
-//     `
-//     <div class="modal">
-//        <img src="${e.target.dataset.source}" >
-//     </div>
-//     `,
-//     {
-//       onShow: instance => {
-//         const modalImg = instance.element().querySelector('img');
-
-//         modalImg.addEventListener('click', () => {
-//           instance.close();
-//         });
-//       },
-//     }
-//   );
-
-//   instance.show();
-// });
+new SimpleLightbox('.gallery a', {
+  captions: true,
+  captionsData: 'alt',
+  captionDelay: 250,
+});
