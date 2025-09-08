@@ -1,1 +1,1 @@
-{"version":3,"file":"2-form.js","sources":["../src/js/2-form.js"],"sourcesContent":["console.log('heeleleel js');\r\n"],"names":[],"mappings":"uFAAA,QAAQ,IAAI,cAAc"}
+{"version":3,"file":"2-form.js","sources":["../src/js/2-form.js"],"sourcesContent":["const data = Date.now();\r\nconsole.log(data);\r\n"],"names":["data"],"mappings":"uFAAA,MAAMA,EAAO,KAAK,MAClB,QAAQ,IAAIA,CAAI"}
