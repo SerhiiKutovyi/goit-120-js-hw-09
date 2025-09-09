@@ -7,16 +7,24 @@
     <title>Form</title>
     <script type="module" crossorigin src="/goit-120-js-hw-09/2-form.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-120-js-hw-09/assets/modulepreload-polyfill-B5Qt9EMX.js">
-    <link rel="stylesheet" crossorigin href="/goit-120-js-hw-09/assets/style-BtE_BMv8.css">
+    <link rel="stylesheet" crossorigin href="/goit-120-js-hw-09/assets/style-BTLp4RhV.css">
   </head>
   <body>
-    <a class="back-link" href="./index.html">Go back</a>
-
     <main>
       <div class="container">
-        <h1 class="main-title">
-          <span class="main-title-gradient">Welcome</span> Form
-        </h1>
+        <a class="back-link" href="./index.html"><<<<< Go back <<<<<</a>
+
+        <form class="feedback-form" autocomplete="off">
+          <label class="label-form">
+            Email
+            <input class="input-form" type="email" name="email" autofocus />
+          </label>
+          <label>
+            Message
+            <textarea class="textarea-form" name="message" rows="8"></textarea>
+          </label>
+          <button class="btn-form" type="submit">Submit</button>
+        </form>
       </div>
     </main>
   </body>
