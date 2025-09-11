@@ -9,8 +9,13 @@ const feedbackFormRef = document.querySelector('.feedback-form');
 const emailRef = document.querySelector('.input-form');
 const messageRef = document.querySelector('.textarea-form');
 
-feedbackFormRef.addEventListener('input', e => {
-  formData[e.target.name] = e.target.value;
+feedbackFormRef.addEventListener('input', () => {
+  const emailValue = feedbackFormRef.elements.email.value.trim();
+  const messageValue = feedbackFormRef.elements.message.value.trim();
+
+  formData.email = emailValue;
+  formData.message = messageValue;
+
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 });
 
@@ -27,29 +32,17 @@ loadFormData();
 
 feedbackFormRef.addEventListener('submit', e => {
   e.preventDefault();
-});
+  const emailValue = e.target.elements.email.value.trim();
+  const messageValue = e.target.elements.message.value.trim();
 
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(5);
-  }, 2000);
-});
+  if (emailValue === '' || messageValue === '') {
+    alert('Fill please all fields');
+  }
 
-promise
-  .then(value => {
-    console.log(value); // 5
-    return value * 2;
-  })
-  .then(value => {
-    console.log(value); // 10
-    return value * 3;
-  })
-  .then(value => {
-    console.log(value); // 30
-  })
-  .catch(error => {
-    console.log(error);
-  })
-  .finally(() => {
-    console.log('finally');
-  });
+  formData.email = emailValue;
+  formData.message = messageValue;
+
+  console.log(formData);
+  localStorage.removeItem(STORAGE_KEY);
+  feedbackFormRef.reset();
+});
