@@ -5,6 +5,8 @@ const formData = {
   message: '',
 };
 
+console.log('after', formData);
+
 const feedbackFormRef = document.querySelector('.feedback-form');
 const emailRef = document.querySelector('.input-form');
 const messageRef = document.querySelector('.textarea-form');
@@ -25,6 +27,9 @@ const loadFormData = () => {
   if (obj) {
     emailRef.value = obj.email;
     messageRef.value = obj.message;
+
+    formData.email = obj.email;
+    formData.message = obj.message;
   }
 };
 
@@ -37,12 +42,17 @@ feedbackFormRef.addEventListener('submit', e => {
 
   if (emailValue === '' || messageValue === '') {
     alert('Fill please all fields');
+    return;
   }
 
   formData.email = emailValue;
   formData.message = messageValue;
 
-  console.log(formData);
   localStorage.removeItem(STORAGE_KEY);
   feedbackFormRef.reset();
+
+  formData.email = '';
+  formData.message = '';
 });
+
+console.log('before', formData);
