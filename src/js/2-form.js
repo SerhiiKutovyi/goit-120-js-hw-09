@@ -5,8 +5,6 @@ const formData = {
   message: '',
 };
 
-console.log('after', formData);
-
 const feedbackFormRef = document.querySelector('.feedback-form');
 const emailRef = document.querySelector('.input-form');
 const messageRef = document.querySelector('.textarea-form');
@@ -54,5 +52,3 @@ feedbackFormRef.addEventListener('submit', e => {
   formData.email = '';
   formData.message = '';
 });
-
-console.log('before', formData);
