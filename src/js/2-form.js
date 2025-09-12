@@ -49,6 +49,8 @@ feedbackFormRef.addEventListener('submit', e => {
   localStorage.removeItem(STORAGE_KEY);
   feedbackFormRef.reset();
 
+  console.log(formData);
+
   formData.email = '';
   formData.message = '';
 });
